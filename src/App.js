@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import Inicio from './components/Inicio';
+import ListarProductos from './components/productos/ListarProductos';
+import AgregarProducto from './components/productos/AgregarProducto';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // Crear sistema de rutas usando SIEMPRE Router y switch
+    <Router>
+      <Switch>
+        {/* Elegir entre las rutas. La barra / es la pagina principal del proyecto (idem index.hml) */}
+        <Route exact path='/'>
+          {/* llamar al componente inicio */}
+          <Inicio></Inicio>
+        </Route>
+        <Route exact path='/productos'>
+          <ListarProductos></ListarProductos>
+        </Route>
+        <Route exact path='/productos/nuevo'>
+          <AgregarProducto></AgregarProducto>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
