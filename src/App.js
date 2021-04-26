@@ -7,8 +7,28 @@ import AgregarProducto from './components/productos/AgregarProducto';
 import Navegacion from './components/common/Navegacion';
 import Footer from './components/common/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import EditarProducto from './components/productos/EditarProducto';
+import {useState,useEffect} from 'react';
 
 function App() {
+  // state para get de preductos y ejecutar solo en montaje
+  const[productos,setProductos]=useState([]);
+  useEffect(()=>{
+    consultarAPI();
+  },[])
+
+  const consultarAPI = async ()=>{
+    try{
+      const respuesta = await fetch('http://localhost:3004/cafeteria');
+      console.log(respuesta);
+      if(respuesta.status===200){
+        const listaProductos= await respuesta.json();
+        setProductos(listaProductos);
+      }
+    }catch(error){
+      console.log("error")
+    }
+  }
   return (
     // Crear sistema de rutas usando SIEMPRE Router y switch
     <Router>
@@ -21,10 +41,13 @@ function App() {
           <Inicio></Inicio>
         </Route>
         <Route exact path='/productos'>
-          <ListarProductos></ListarProductos>
+          <ListarProductos productos = {productos}></ListarProductos>
         </Route>
         <Route exact path='/productos/nuevo'>
           <AgregarProducto></AgregarProducto>
+        </Route>
+        <Route exact path='/productos/editar'>
+          <EditarProducto></EditarProducto>
         </Route>
       </Switch>
       {/* se invoca el footer */}
