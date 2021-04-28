@@ -3,6 +3,9 @@ import { Form,Button, Container, FormCheck, Alert } from "react-bootstrap";
 import Swal from 'sweetalert2'
 
 const AgregarProducto = (props) => {
+     // variable de entorno
+    const URL = process.env.REACT_APP_API_URL;
+
     // CREACION DE STATES: por cada campo del formulario
     const[nombreProducto,setNombreProducto] = useState('');
     const[precioProducto,setPrecioProducto] = useState(0);
@@ -57,7 +60,7 @@ const AgregarProducto = (props) => {
                 }
                 //-------------------------
                 // hace POST a la api
-                const respuesta = await fetch('http://localhost:3004/cafeteria',datosEnviar);
+                const respuesta = await fetch(URL,datosEnviar);
                 console.log(respuesta);
                 if(respuesta.status===201){
                     // mostrar que el producto fue cargado correctamente

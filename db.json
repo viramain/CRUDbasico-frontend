@@ -7,22 +7,10 @@
       "id": 1
     },
     {
-      "nombreProducto": "medialuna x unidad",
-      "precioProducto": "40",
-      "categoriaProducto": "dulce",
-      "id": 2
-    },
-    {
       "nombreProducto": "pan",
       "precioProducto": 120,
       "categoriaProducto": "salado",
       "id": 3
-    },
-    {
-      "nombreProducto": "lemon pie",
-      "precioProducto": 130,
-      "categoriaProducto": "dulce",
-      "id": 4
     },
     {
       "nombreProducto": "brownie",
