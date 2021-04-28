@@ -23,6 +23,18 @@
       "precioProducto": 130,
       "categoriaProducto": "dulce",
       "id": 4
+    },
+    {
+      "nombreProducto": "brownie",
+      "precioProducto": 100,
+      "categoriaProducto": "dulce",
+      "id": 5
+    },
+    {
+      "nombreProducto": "te",
+      "precioProducto": 85,
+      "categoriaProducto": "bebidaCaliente",
+      "id": 6
     }
   ]
 }

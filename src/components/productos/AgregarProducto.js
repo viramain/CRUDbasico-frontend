@@ -2,14 +2,16 @@ import React, {useState} from "react";
 import { Form,Button, Container, FormCheck, Alert } from "react-bootstrap";
 import Swal from 'sweetalert2'
 
-const AgregarProducto = () => {
-    // CREACION DE STATES: por cada opcion del formulario
+const AgregarProducto = (props) => {
+    // CREACION DE STATES: por cada campo del formulario
     const[nombreProducto,setNombreProducto] = useState('');
     const[precioProducto,setPrecioProducto] = useState(0);
     const[categoriaProducto,setCategoriaProducto] = useState('');
+
     // state con variable booleana para mostrar u ocultar el alert. Para que react renderice
     const[error,setError] = useState(false);
 
+    // FUNCIONES
     const cambiarCategoria= (e)=>{
         setCategoriaProducto(e.target.value);
     }
@@ -21,7 +23,6 @@ const AgregarProducto = () => {
             //si falla mostrar alert de error u ocultarlo
             setError(true);
             return;
-            
         } else{
             // ocultar alert
             setError(false);
@@ -46,7 +47,7 @@ const AgregarProducto = () => {
             //estructura de control: try{codigo}, si hay un error se ejecuta catch
             try{
                 // interaccion con la API
-                // defino un objeto que sera el 2° parametro del fetch. siempre tiene la misma estructura
+                // defino un OBJETO que sera el 2° parametro del fetch cunado hago POST,DELETE . siempre tiene la misma estructura
                 const datosEnviar = {
                     method: "POST", 
                     headers:{
@@ -65,7 +66,8 @@ const AgregarProducto = () => {
                         'Se registró un nuevo producto.',
                         'success'
                     )
-                    // otras tareas
+                    // actualizar los datos. pongo parentesis porque la llamo a la funcion
+                    props.consultarAPI();
                 }
             }catch(error){
                 console.log(error);
@@ -82,10 +84,14 @@ const AgregarProducto = () => {
     return (
     <Container>
         <Form onSubmit={handleSubmit}>
+        {/* <Form noValidate validated={validado} onSubmit={handleSubmit}> */}
             <h1 className="display-5 text-center py-3">Agregar Nuevo Producto</h1>
             <Form.Group className='py-2'>
                 <Form.Label>Nombre del Producto *</Form.Label>
-                <Form.Control type="text" placeholder="Nombre del producto" onChange={(e)=> {setNombreProducto(e.target.value)}}/>
+                <Form.Control type="text" placeholder="Nombre del producto" onChange={(e)=> {setNombreProducto(e.target.value)}} required/>
+                
+                {/* <Form.Control type="text" placeholder="Nombre del producto" onChange={(e)=> {setNombreProducto(e.target.value)}} onBlur={validarTexto} required/>
+                <Form.Control.Feedback type="invalid">Debe ingresar un nombre del producto</Form.Control.Feedback> */}
             </Form.Group>
 
             <Form.Group className='py-2'>
