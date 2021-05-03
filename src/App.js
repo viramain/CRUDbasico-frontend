@@ -14,12 +14,13 @@ function App() {
   // variable de entorno
   const URL = process.env.REACT_APP_API_URL;
   console.log(URL);
-  // state para get de preductos y ejecutar solo en montaje
+
   const[productos,setProductos]=useState([]);
   useEffect(()=>{
     consultarAPI();
   },[])
 
+  // toma los datos de la api
   const consultarAPI = async ()=>{
     try{
       const respuesta = await fetch(URL);

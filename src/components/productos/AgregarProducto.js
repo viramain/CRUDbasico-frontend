@@ -58,6 +58,7 @@ const AgregarProducto = (props) => {
                     },
                     body:JSON.stringify(producto)
                 }
+                console.log(datosEnviar)
                 //-------------------------
                 // hace POST a la api
                 const respuesta = await fetch(URL,datosEnviar);

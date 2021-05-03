@@ -2,7 +2,7 @@
   "cafeteria": [
     {
       "nombreProducto": "café con leche",
-      "precioProducto": "50",
+      "precioProducto": 50,
       "categoriaProducto": "bebidaCaliente",
       "id": 1
     },
@@ -23,6 +23,18 @@
       "precioProducto": 85,
       "categoriaProducto": "bebidaCaliente",
       "id": 6
+    },
+    {
+      "nombreProducto": "tostado ternera, queso y tomate",
+      "precioProducto": 280,
+      "categoriaProducto": "sandwich",
+      "id": 8
+    },
+    {
+      "nombreProducto": "Jugo de naranja",
+      "precioProducto": 250,
+      "categoriaProducto": "bebidaFria",
+      "id": 9
     }
   ]
 }

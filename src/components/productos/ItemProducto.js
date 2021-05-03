@@ -30,7 +30,6 @@ const ItemProducto = (props) => {
                             'El produto seleccionado fue correctamente eliminado.',
                             'success'
                         )
-
                         //actualizar los datos de la api
                         props.consultarAPI();
                     }
@@ -43,9 +42,6 @@ const ItemProducto = (props) => {
                         'warning'
                     )
                 }
-
-
-                
             }
         })
     }
