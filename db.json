@@ -7,8 +7,8 @@
       "id": 1
     },
     {
-      "nombreProducto": "pan",
-      "precioProducto": 120,
+      "nombreProducto": "pan frances",
+      "precioProducto": "120",
       "categoriaProducto": "salado",
       "id": 3
     },
@@ -20,13 +20,13 @@
     },
     {
       "nombreProducto": "te",
-      "precioProducto": 85,
+      "precioProducto": "85",
       "categoriaProducto": "bebidaCaliente",
       "id": 6
     },
     {
       "nombreProducto": "tostado ternera, queso y tomate",
-      "precioProducto": 280,
+      "precioProducto": "300",
       "categoriaProducto": "sandwich",
       "id": 8
     },

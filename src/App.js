@@ -9,6 +9,7 @@ import Footer from './components/common/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EditarProducto from './components/productos/EditarProducto';
 import {useState,useEffect} from 'react';
+import Error404 from './components/Error404';
 
 function App() {
   // variable de entorno
@@ -50,8 +51,13 @@ function App() {
         <Route exact path='/productos/nuevo'>
           <AgregarProducto consultarAPI={consultarAPI}></AgregarProducto>
         </Route>
-        <Route exact path='/productos/editar'>
-          <EditarProducto></EditarProducto>
+        {/* /: es para pasar parametros, que puede tener cualquier nombre */}
+        {/* <Route exact path='/productos/editar/:id?'> se pone ? cuando es optativo el parametro */}
+        <Route exact path='/productos/editar/:id'>
+          <EditarProducto consultarAPI={consultarAPI}></EditarProducto>
+        </Route>
+        <Route path='*'> 
+          <Error404></Error404>
         </Route>
       </Switch>
       {/* se invoca el footer */}
